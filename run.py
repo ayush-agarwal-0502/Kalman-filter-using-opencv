@@ -25,8 +25,8 @@ class kalman:
         #in real kalman filter prediction must be a linear function of present state and control(which isnt here)
         #hence this is also another way of writing the kalman filter
         #i've added gaussian noise too , and updated the state properly
-        x_tf = self.state[2] + 4(self.state[2] - self.state[0]) + random.gauss(0,10**(-5))
-        y_tf = self.state[3] + 4(self.state[3] - self.state[1]) + random.gauss(0,10**(-5))
+        x_tf = self.state[2] + (self.state[2] - self.state[0]) + random.gauss(0,10**(-5))
+        y_tf = self.state[3] + (self.state[3] - self.state[1]) + random.gauss(0,10**(-5))
         self.state[0] = self.state[2]
         self.state[1] = self.state[3]
         self.state[2] = x_tf
